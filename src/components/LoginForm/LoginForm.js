@@ -34,7 +34,7 @@ const LoginForm = () => {
             setUsername('');
             setPassword('');
             navigate('/'); 
-    
+            window.location.reload();
         } catch (err) {
             if (err.response) {
                 setError(err.response.data.error || "Произошла ошибка при входе в систему.");

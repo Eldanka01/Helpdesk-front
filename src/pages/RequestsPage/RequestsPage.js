@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
 import './RequestsPage.css';
-import logo from './almaulogo.svg'; 
 
 const RequestsPage = () => {
     const [requests, setRequests] = useState([]);
@@ -69,17 +68,6 @@ const RequestsPage = () => {
             </header>
 
             <div className='container py-4'>
-
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                        <img src={logo} alt="AlmaU Logo" className="logo" />
-
-                        <li className="breadcrumb-item"><Link to="/">Главная</Link></li>
-                        <li className="breadcrumb-item active" aria-current="page">Все заявки</li>
-                        <li className="breadcrumb-item"><Link to="/newrequests">Новые заявки</Link></li>
-                        <li className="breadcrumb-item"><Link to="/my-requests">Мои заявки</Link></li>
-                    </ol>
-                </nav>
 
                 <h2 className="mb-4">Заявки</h2>
 

@@ -1,0 +1,27 @@
+.header-wrapper {
+    background: #20232a;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #fff;
+}
+ol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0!important;
+}
+.header-name {
+    font-size: 24px;
+    margin-left: 15px;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+}

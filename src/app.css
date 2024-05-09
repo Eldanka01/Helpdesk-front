@@ -1,0 +1,7 @@
+body {
+    background-image: url('./images/IMG_6744.JPG'); /* Путь к изображению */
+    background-size: cover; /* Заставляет изображение масштабироваться, чтобы покрыть всю доступную область */
+    background-position: center; /* Центрирует изображение по центру */
+    background-repeat: no-repeat; /* Предотвращает повторение изображения */
+    background-attachment: fixed;
+}

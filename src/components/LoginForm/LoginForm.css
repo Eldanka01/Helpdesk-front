@@ -19,8 +19,10 @@ a{
     max-width: 400px;
     margin: 100px auto;
     padding: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    border-radius: 20px;
+    background-color: #20232a;
+    color: #fff;
+    box-shadow: 0 0px 10px 5px rgba(255, 0, 242, 0.2);
 }
 
 .form-h2{

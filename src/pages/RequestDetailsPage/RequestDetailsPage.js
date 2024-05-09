@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link} from 'react-router-dom';
 
-import logo from '../RequestsPage/almaulogo.svg'
-
-
 const RequestDetailsPage = () => {
     const [request, setRequest] = useState(null); 
     const { id } = useParams();
@@ -50,17 +47,6 @@ const RequestDetailsPage = () => {
             </header>
 
             <div className='container py-4'>
-
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <img src={logo} alt="AlmaU Logo" className="logo" />
-
-                        <li className="breadcrumb-item"><Link to="/">Главная</Link></li>
-                        <li class="breadcrumb-item"><Link to="/requests">Все заявки</Link></li>
-                        <li class="breadcrumb-item"><Link to="/newrequests">Новые заявки</Link></li>
-                        <li class="breadcrumb-item"><Link to="/my-requests">Мои заявки</Link></li>
-                    </ol>
-                </nav>
 
                 <h2 className="mb-4">Заявка №{request.id}</h2>
                 <div className="card">
