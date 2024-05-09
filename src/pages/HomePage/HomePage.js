@@ -73,7 +73,7 @@ const HomePage = () => {
       ) : (
         <>
           <div className="home-welcome-section">
-            <div>
+            <div className="home-welcome-section-container">
               <p>
                 Вы не зарегистрированы. Пожалуйста,{" "}
                 <Link to="/register">зарегистрируйтесь</Link>.
