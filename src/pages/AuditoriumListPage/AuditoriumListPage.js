@@ -6,6 +6,7 @@ import './auditorium-list-page.css'
 
 function AuditoriumListPage() {
     const [auditoriums, setAuditoriums] = useState([]);
+    console.log(auditoriums);
 
     useEffect(() => {
         const fetchAuditoriums = async () => {
@@ -26,7 +27,7 @@ function AuditoriumListPage() {
 
     const handleDownloadQR = async (auditorium) => {
         const canvas = document.createElement("canvas");
-        const url = `http://${window.location.host}/add-request?auditoriumNumber=${auditorium.id}`;
+        const url = `http://${window.location.host}/add-request?auditoriumNumber=${auditorium.number}`;
         await QRCodeGenerator.toCanvas(canvas, url, { width: 200 });
         const pngUrl = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
         let downloadLink = document.createElement("a");
@@ -47,12 +48,12 @@ function AuditoriumListPage() {
                             <div className="card-body">
                                 <h3 className="card-title">Аудитория №{auditorium.number}</h3>
                                 <div className="mb-3">
-                                    <QRCode value={`http://${window.location.host}/add-request?auditoriumNumber=${auditorium.id}`} />
+                                    <QRCode value={`http://${window.location.host}/add-request?auditoriumNumber=${auditorium.number}`} />
                                 </div>
                                 <button onClick={() => handleDownloadQR(auditorium)} className="btn btn-secondary">
                                     Скачать QR
                                 </button>
-                                <Link to={`/add-request?auditoriumNumber=${auditorium.id}`} className="btn btn-primary">
+                                <Link to={`/add-request?auditoriumNumber=${auditorium.number}`} className="btn btn-primary">
                                     Добавить заявку
                                 </Link>
                             </div>
