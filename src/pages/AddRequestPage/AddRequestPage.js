@@ -5,7 +5,8 @@ import './add-request-page.css'
 
 function AddRequestPage() {
   const [searchParams] = useSearchParams();
-  const auditoriumNumber = searchParams.get("auditoriumNumber");
+  const auditoriumInfo = searchParams.get("auditoriumInfo");
+  const [auditoriumId, auditoriumNumber] = auditoriumInfo.split("-");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [description, setDescription] = useState("");
   const [creator, setCreator] = useState("");
@@ -23,7 +24,7 @@ function AddRequestPage() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            auditorium_number: auditoriumNumber,
+            auditorium_number: auditoriumId,
             description: description,
             creator: creator,
             phone_number: phoneNumber,
