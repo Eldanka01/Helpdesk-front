@@ -18,14 +18,14 @@ function Header() {
 
           {isAuthenticated ? (
             <>
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
                   <Link to="/requests">Все заявки</Link>
                 </li>
-                <li class="breadcrumb-item">
+                <li className="breadcrumb-item">
                   <Link to="/newrequests">Новые заявки</Link>
                 </li>
-                <li class="breadcrumb-item">
+                <li className="breadcrumb-item">
                   <Link to="/my-requests">Мои заявки</Link>
                 </li>
               </ol>

@@ -112,7 +112,7 @@ const RequestsPage = () => {
                                     <td>{request.auditorium_number}</td>
                                     <td>{request.creator}</td>
                                     <td>{request.description}</td>
-                                    <td>{request.handler}</td>
+                                    <td>{request.handler_username}</td>
                                     <td>{formatDate(request.created_at)}</td>
                                     <td>{request.status === 'NEW' ? 'Новый' : 
                                         request.status === 'IN_PROCESS' ? 'В процессе' : 
