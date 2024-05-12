@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const MyRequestsPage = () => {
     const [requests, setRequests] = useState([]);
@@ -10,7 +11,7 @@ const MyRequestsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:8000/api/helpdesk-requests/');
+                const res = await axios.get(`${apiUrl}/api/helpdesk-requests/`);
                 setRequests(res.data);
             } catch (err) {
                 console.error(err.response.data);
@@ -22,7 +23,7 @@ const MyRequestsPage = () => {
 
     const handleAcceptRequest = async (id) => {
         try {
-            const res = await axios.patch(`http://localhost:8000/api/helpdesk-requests/${id}/`, { 
+            const res = await axios.patch(`${apiUrl}/api/helpdesk-requests/${id}/`, { 
                 status: 'CLOSED',
              });
 

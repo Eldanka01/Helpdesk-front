@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './RegisterForm.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -23,7 +25,7 @@ const RegisterForm = () => {
         event.preventDefault();
 
         try {
-            const res = await axios.post('http://localhost:8000/api/register/', {
+            const res = await axios.post(`${apiUrl}/api/register/`, {
                 user: {
                     username: formData.username,
                     password: formData.password

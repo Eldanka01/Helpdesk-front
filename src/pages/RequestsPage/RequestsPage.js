@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import './RequestsPage.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const RequestsPage = () => {
     const [requests, setRequests] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +17,7 @@ const RequestsPage = () => {
 
     const loadDataFromServer = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/helpdesk-requests/');
+            const res = await axios.get(`${apiUrl}/api/helpdesk-requests/`);
             setRequests(res.data);
         } catch (err) {
             console.error(err.response.data);

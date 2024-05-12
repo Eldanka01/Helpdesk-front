@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import QRCode from "qrcode.react"; 
 import QRCodeGenerator from "qrcode";
 import './auditorium-list-page.css'
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function AuditoriumListPage() {
     const [auditoriums, setAuditoriums] = useState([]);
@@ -11,7 +13,7 @@ function AuditoriumListPage() {
     useEffect(() => {
         const fetchAuditoriums = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/auditoriums/');
+                const response = await fetch(`${apiUrl}/api/auditoriums/`);
                 if (!response.ok) {
                     throw new Error('Ошибка загрузки данных об аудиториях');
                 }

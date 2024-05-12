@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import InputMask from "react-input-mask";
 import './add-request-page.css'
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function AddRequestPage() {
   const [searchParams] = useSearchParams();
@@ -17,7 +19,7 @@ function AddRequestPage() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8000/api/helpdesk-requests/",
+        `${apiUrl}/api/helpdesk-requests/`,
         {
           method: "POST",
           headers: {
