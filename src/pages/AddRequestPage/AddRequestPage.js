@@ -62,7 +62,7 @@ function AddRequestPage() {
       {success && <div className="alert alert-success">Заявка успешно создана! Ожидайте специалиста</div>}
       <form onSubmit={handleSubmit} className="needs-validation add-request-form" noValidate>
       <h2 className="text-center">Создание заявки</h2>
-      <h6 className="text-center">Аудитория № {auditoriumNumber}</h6>
+      <h6 className="text-center">Терминал № {auditoriumNumber}</h6>
         <div className="mb-3">
           <label htmlFor="creator" className="form-label">Имя</label>
           <input

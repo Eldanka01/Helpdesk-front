@@ -15,7 +15,7 @@ function AuditoriumListPage() {
             try {
                 const response = await fetch(`${apiUrl}/api/auditoriums/`);
                 if (!response.ok) {
-                    throw new Error('Ошибка загрузки данных об аудиториях');
+                    throw new Error('Ошибка загрузки данных об терминалах');
                 }
                 const data = await response.json();
                 setAuditoriums(data);
@@ -42,13 +42,13 @@ function AuditoriumListPage() {
 
     return (
         <div className="container mt-4">
-            <h1>Список аудиторий</h1>
+            <h1>Список терминалов</h1>
             <div className="row mt-4">
                 {auditoriums.map(auditorium => (
                     <div key={auditorium.id} className="col-md-4 mb-4">
                         <div className="card">
                             <div className="card-body">
-                                <h3 className="card-title">Аудитория №{auditorium.number}</h3>
+                                <h3 className="card-title">Терминал №{auditorium.number}</h3>
                                 <div className="mb-3">
                                     <QRCode value={`http://${window.location.host}/add-request?auditoriumInfo=${auditorium.id}-${auditorium.number}`} />
                                 </div>

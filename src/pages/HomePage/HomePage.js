@@ -28,7 +28,7 @@ const HomePage = () => {
                   <div className="col-md-6">
                     <div className="form-container">
                       <p>Добро пожаловать, {username}!</p>
-                      <Link to="/auditorium-list">QR Аудиторий</Link>
+                      <Link to="/auditorium-list">QR Терминалов</Link>
 
 
                       <div className="d-grid gap-2">

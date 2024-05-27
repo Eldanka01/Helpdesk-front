@@ -18,7 +18,10 @@ const RequestsPage = () => {
     const loadDataFromServer = async () => {
         try {
             const res = await axios.get(`${apiUrl}/api/helpdesk-requests/`);
-            setRequests(res.data);
+            const sortedData = res.data.sort((a, b) => {
+                return new Date(b.created_at) - new Date(a.created_at); 
+            });
+            setRequests(sortedData);
         } catch (err) {
             console.error(err.response.data);
         }
@@ -34,9 +37,9 @@ const RequestsPage = () => {
         return (
             (!statusFilter || request.status.toLowerCase() === statusFilter.toLowerCase()) &&
             (!searchTerm || 
-                (request.auditorium_number && request.auditorium_number.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (request.auditorium_number_display && request.auditorium_number_display.toString().toLowerCase().includes(searchTerm.toLowerCase())) ||
                 (request.creator && request.creator.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (request.handler && request.handler.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (request.handler_username && request.handler_username.toLowerCase().includes(searchTerm.toLowerCase())) ||
                 (request.status && request.status.toLowerCase().includes(searchTerm.toLowerCase()))
             )
         );
@@ -53,13 +56,13 @@ const RequestsPage = () => {
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        const minutes = date.getMinutes();
-        const hours = date.getHours();
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const hours = date.getHours().toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
         const year = date.getFullYear();
         return `${hours}:${minutes} ${day}.${month}.${year}`;
-    };
+    };    
 
     return (
         
@@ -97,8 +100,8 @@ const RequestsPage = () => {
                         <thead className="bg-primary text-white">
                             <tr>
                                 <th scope="col">№</th>
-                                <th scope="col">Аудитория</th>
-                                <th scope="col">Преподаватель/Сотрудник</th>
+                                <th scope="col">Терминал</th>
+                                <th scope="col">Сотрудник</th>
                                 <th scope="col">Описание</th>
                                 <th scope="col">HelpDesk сотрудник</th>
                                 <th scope="col">Создана</th>
@@ -109,7 +112,7 @@ const RequestsPage = () => {
                             {filteredRequests.map((request, index) => (
                                 <tr key={index} onClick={() => handleRowClick(request.id)}>
                                     <td>{index + 1}</td>
-                                    <td>{request.auditorium_number}</td>
+                                    <td>{request.auditorium_number_display}</td>
                                     <td>{request.creator}</td>
                                     <td>{request.description}</td>
                                     <td>{request.handler_username}</td>

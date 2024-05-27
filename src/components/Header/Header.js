@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/logo.png";
+import logo from "../../images/IMG_4994.JPG";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import "./header.css";
@@ -12,8 +12,8 @@ function Header() {
       <div className="container header-container">
         <nav aria-label="breadcrumb">
           <Link to="/" className="header-logo">
-            <img src={logo} alt="AlmaU Logo" className="logo" width={70} />
-            <span className="header-name">HelpDesk Almau</span>
+            <img src={logo} alt="Airlines Logo" className="logo" width={70} />
+            <span className="header-name">HelpDesk for airlines</span>
           </Link>
 
           {isAuthenticated ? (

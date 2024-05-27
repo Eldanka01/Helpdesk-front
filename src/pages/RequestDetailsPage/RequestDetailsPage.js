@@ -32,13 +32,13 @@ const RequestDetailsPage = () => {
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        const minutes = date.getMinutes();
-        const hours = date.getHours();
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const hours = date.getHours().toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
         const year = date.getFullYear();
         return `${hours}:${minutes} ${day}.${month}.${year}`;
-    };
+    };   
 
     return (
         <div>
@@ -54,10 +54,10 @@ const RequestDetailsPage = () => {
                     <div className="card-body">
                         <h5 className="card-title">Детали заявки</h5>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item"><strong>Аудитория:</strong> {request.auditorium_number}</li>
-                            <li className="list-group-item"><strong>Преподаватель/Сотрудник:</strong> {request.creator}</li>
+                            <li className="list-group-item"><strong>Терминал:</strong> {request.auditorium_number_display}</li>
+                            <li className="list-group-item"><strong>Сотрудник:</strong> {request.creator}</li>
                             <li className="list-group-item"><strong>Описание:</strong> {request.description}</li>
-                            <li className="list-group-item"><strong>HelpDesk сотрудник:</strong> {request.handler}</li>
+                            <li className="list-group-item"><strong>HelpDesk сотрудник:</strong> {request.handler_username}</li>
                             <li className="list-group-item"><strong>Создана:</strong> {formatDate(request.created_at)}</li>
                             <li className="list-group-item"><strong>Статус:</strong> {request.status === 'NEW' ? 'Новый' : 
                                         request.status === 'IN_PROCESS' ? 'В процессе' : 
