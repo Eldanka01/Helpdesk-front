@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/IMG_4994.JPG";
+import logo from "../../images/IMG_5008.JPG";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import "./header.css";

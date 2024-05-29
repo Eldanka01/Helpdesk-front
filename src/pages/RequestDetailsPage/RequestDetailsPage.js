@@ -55,7 +55,8 @@ const RequestDetailsPage = () => {
                         <h5 className="card-title">Детали заявки</h5>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item"><strong>Терминал:</strong> {request.auditorium_number_display}</li>
-                            <li className="list-group-item"><strong>Сотрудник:</strong> {request.creator}</li>
+                            <li className="list-group-item"><strong>Пользователь:</strong> {request.creator}</li>
+                            <li className="list-group-item"><strong>Номер телефона:</strong> {request.phone_number ? request.phone_number : "-"}</li>
                             <li className="list-group-item"><strong>Описание:</strong> {request.description}</li>
                             <li className="list-group-item"><strong>HelpDesk сотрудник:</strong> {request.handler_username}</li>
                             <li className="list-group-item"><strong>Создана:</strong> {formatDate(request.created_at)}</li>

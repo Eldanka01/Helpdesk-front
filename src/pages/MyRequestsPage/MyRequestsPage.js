@@ -66,7 +66,8 @@ const MyRequestsPage = () => {
                   <tr>
                     <th scope="col">№</th>
                     <th scope="col">Терминал</th>
-                    <th scope="col">Сотрудник</th>
+                    <th scope="col">Пользователь</th>
+                    <th scope="col">Номер телефона</th>
                     <th scope="col">HelpDesk сотрудник</th>
                     <th scope="col">Создана</th>
                     <th scope="col">Действия</th>
@@ -89,6 +90,7 @@ const MyRequestsPage = () => {
                           <td>{index + 1}</td>
                           <td>{request.auditorium_number_display}</td>
                           <td>{request.creator}</td>
+                          <td>{request.phone_number ? request.phone_number : "-"}</td>
                           <td>{request.handler_username }</td>
                           <td>{formatDate(request.created_at)}</td>
                           <td>
